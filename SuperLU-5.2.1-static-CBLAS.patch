@@ -1,0 +1,9 @@
+diff -uNr SuperLU_5.2.1.orig/CBLAS/CMakeLists.txt SuperLU_5.2.1/CBLAS/CMakeLists.txt
+--- SuperLU_5.2.1.orig/CBLAS/CMakeLists.txt	2017-11-09 17:31:17.842319893 +0300
++++ SuperLU_5.2.1/CBLAS/CMakeLists.txt	2017-11-09 17:31:26.589319469 +0300
+@@ -79,4 +79,4 @@
+     )
+ endif()
+ 
+-add_library(blas ${sources} ${HEADERS})
++add_library(blas STATIC ${sources} ${HEADERS})
