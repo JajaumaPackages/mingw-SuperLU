@@ -8,13 +8,14 @@ Summary:        MinGW port of SuperLU
 License:        BSD
 URL:            http://crd-legacy.lbl.gov/~xiaoye/SuperLU
 Source0:        http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_%{version}.tar.gz
-Patch0:         SuperLU-5.2.1-static-CBLAS.patch
 
 BuildRequires:  mingw32-filesystem
 BuildRequires:  mingw32-gcc
+BuildRequires:  mingw32-openblas
 
 BuildRequires:  mingw64-filesystem
 BuildRequires:  mingw64-gcc
+BuildRequires:  mingw64-openblas
 
 BuildArch:      noarch
 
@@ -39,10 +40,11 @@ Summary:        64-bit version of SuperLU for Windows
 
 %prep
 %setup -qn SuperLU_%{version}
-%patch0 -p1
 
 %build
-%mingw_cmake -Denable_tests=OFF
+%mingw_cmake \
+    -Denable_blaslib=OFF \
+    -Denable_tests=OFF
 %mingw_make %{?_smp_mflags}
 
 %install
