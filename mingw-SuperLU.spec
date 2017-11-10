@@ -9,6 +9,8 @@ License:        BSD
 URL:            http://crd-legacy.lbl.gov/~xiaoye/SuperLU
 Source0:        http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_%{version}.tar.gz
 
+BuildRequires:  cmake
+
 BuildRequires:  mingw32-filesystem
 BuildRequires:  mingw32-gcc
 BuildRequires:  mingw32-openblas
